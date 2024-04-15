@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "org.example.users";
+service StylistService {
+  rpc GetStylistDetails (StylistRequest) returns (StylistResponse);
+}
+
+message StylistRequest {
+  int32 stylistId = 1;
+}
+
+message StylistResponse {
+  Stylist stylist = 1;
+  repeated Client clients = 2;
+}
+
+message Stylist {
+  int32 idStylist = 1;
+  string name = 2;
+}
+
+message Client {
+  int32 id = 1;
+  string name = 2;
+  int32 stylistId = 3;
+}
